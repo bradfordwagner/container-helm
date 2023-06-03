@@ -1,9 +1,11 @@
 ---
 - hosts: localhost
   vars:
+    kubectl_ver: v1.27.2
     kubernetes_helm_ver: v3.12.0
   roles:
     - role: andrewrothstein.kubernetes-helm
+    - role: andrewrothstein.kubectl
   tasks:
     - name: install azure-cli required packages
       apt:
