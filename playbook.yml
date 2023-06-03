@@ -1,7 +1,25 @@
 ---
 - hosts: localhost
   vars:
-    jq_ver: 1.6
+    azurecli_ver: 2.49.0
+    kubectl_ver: v1.27.2
+    kubernetes_helm_ver: v3.12.0
   roles:
-    - role: andrewrothstein.jq
-
+    - role: andrewrothstein.kubernetes-helm
+    - role: andrewrothstein.kubectl
+  tasks:
+    - name: install azure-cli required packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - gcc
+        - python3.9-dev
+    - name: link /usr/local/bin/pip to /usr/bin/pip
+      file:
+        path: /usr/bin/pip
+        src: /usr/local/bin/pip
+        state: link
+    - name: install azurecli with pip
+      pip:
+        name: azure-cli=={{ azurecli_ver }}

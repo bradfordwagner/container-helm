@@ -1,3 +1,5 @@
 ---
-- role: andrewrothstein.jq
-  version: v1.0.8
+- role: andrewrothstein.kubernetes-helm
+  version: v2.0.30
+- role: andrewrothstein.kubectl
+  version: v1.2.11
