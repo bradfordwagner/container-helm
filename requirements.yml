@@ -3,3 +3,5 @@
   version: v2.0.30
 - role: andrewrothstein.kubectl
   version: v1.2.11
+- role: andrewrothstein.jq
+  version: v1.0.10

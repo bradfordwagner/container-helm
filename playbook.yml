@@ -4,9 +4,11 @@
     azurecli_ver: 2.49.0
     kubectl_ver: v1.27.2
     kubernetes_helm_ver: v3.12.0
+    jq_ver: 1.6
   roles:
     - role: andrewrothstein.kubernetes-helm
     - role: andrewrothstein.kubectl
+    - role: andrewrothstein.jq
   tasks:
     - name: install azure-cli required packages
       apt:
